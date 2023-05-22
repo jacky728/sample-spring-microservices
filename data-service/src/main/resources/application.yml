@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: data-service
+
+logging:
+  level:
+    root: info
+    com.nomura.sample: debug

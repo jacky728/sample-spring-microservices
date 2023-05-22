@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: data-service
+          #uri: lb://data-service
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/data/**
+          filters:
+            - RewritePath=/data/(?<path>.*), /$\{path}
+            - CircuitBreaker
+
+resilience4j:
+
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 1s
+
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 60
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 40
+
+logging:
+  level:
+    root: info
+    org.springframework.cloud: debug
