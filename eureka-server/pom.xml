@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
 
-    <artifactId>gateway-service</artifactId>
+    <artifactId>eureka-server</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>gateway-service</name>
-    <description>Sample project to demo Spring Cloud Gateway</description>
+    <name>eureka-server</name>
+    <description>Sample eureka-server for Spring microservices register/discovery</description>
 
     <dependencies>
         <dependency>
@@ -21,15 +21,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
         <dependency>

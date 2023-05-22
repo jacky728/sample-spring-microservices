@@ -26,6 +26,8 @@
 	<modules>
 		<module>data-service</module>
 		<module>gateway-service</module>
+
+		<module>eureka-server</module>
 	</modules>
 
 	<dependencyManagement>
