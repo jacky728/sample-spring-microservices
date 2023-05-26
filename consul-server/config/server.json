@@ -1,0 +1,9 @@
+{
+  "node_name": "consul-server",
+  "server": true,
+  "ui_config": {
+    "enabled": true
+  },
+  "bind_addr": "127.0.0.2",
+  "client_addr": "127.0.0.2"
+}

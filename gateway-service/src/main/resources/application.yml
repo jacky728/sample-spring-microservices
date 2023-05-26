@@ -6,11 +6,28 @@ spring:
     name: gateway-service
 
   cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        tags:
+          - version=1.0
+        #register-health-check: false
+        health-check-interval: 10s
+        health-check-path: /actuator/health
+        # Use below config instead for docker and replace localhost with actual IP addr:
+        #health-check-url: http://localhost:8080/actuator/health
+
     gateway:
+      discovery:
+        locator:
+          enabled: true
+
       routes:
         - id: data-service
-          #uri: lb://data-service
-          uri: http://localhost:8081/
+          uri: lb://data-service
+          #uri: http://localhost:8081/
           predicates:
             - Path=/data/**
           filters:

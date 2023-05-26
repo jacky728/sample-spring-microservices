@@ -1,0 +1,5 @@
+{
+  "node_name": "consul-client",
+  "client_addr": "127.0.0.1",
+  "retry_join": ["127.0.0.2"]
+}

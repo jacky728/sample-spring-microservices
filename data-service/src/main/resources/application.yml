@@ -5,6 +5,20 @@ spring:
   application:
     name: data-service
 
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        tags:
+          - version=1.0-SNAPSHOT
+        #register-health-check: false
+        health-check-interval: 5s
+        health-check-path: /actuator/health
+        # Use below config instead for docker and replace localhost with actual IP addr:
+        #health-check-url: http://localhost:8081/actuator/health
+
 logging:
   level:
     root: info
