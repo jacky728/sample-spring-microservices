@@ -14,3 +14,19 @@ logging:
   level:
     root: info
     com.nomura.sample: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics
+
+sample:
+  default-cost-millis: 500
+  random-cost-millis-limit: 3000
+  data:
+    author: Fujun Yang
+    email: fujun.yang@nomura.com
+    department: WDOT Market Data Services
+    location: Shanghai (Central Plaza 31FL)
+    webex: https://nomura.webex.com/meet/fujun.yang | 2610 697 0331
