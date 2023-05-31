@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gateway-service
+  name: gateway-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway-service
+  template:
+    metadata:
+      labels:
+        app: gateway-service
+    spec:
+      containers:
+      - image: gateway-service:1.0-SNAPSHOT
+        name: data-service
+        resources: {}
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+        lifecycle:  # Enable graceful shutdown
+          preStop:
+            exec:
+              command: ["sh", "-c", "sleep 10"]
+        volumeMounts:
+          - name: config-volume
+            mountPath: /workspace/config
+
+      volumes:
+        - name: config-volume
+          configMap:
+            name: app-graceful-shutdown
