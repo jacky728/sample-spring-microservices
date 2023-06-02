@@ -17,12 +17,22 @@ spec:
       containers:
       - image: data-service:1.0-SNAPSHOT
         name: data-service
-        resources: {}
+        resources:
+          limits:
+            cpu: 200m
+            memory: 800Mi
+          requests:
+            cpu: 50m
+            memory: 500Mi
+        ports:
+          - containerPort: 8081
         livenessProbe:
+          initialDelaySeconds: 90
           httpGet:
             path: /actuator/health/liveness
             port: 8081
         readinessProbe:
+          initialDelaySeconds: 90
           httpGet:
             path: /actuator/health/readiness
             port: 8081
