@@ -5,6 +5,14 @@ spring:
   application:
     name: data-service
 
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+
+feign:
+  circuitbreaker:
+    enabled: true
+
 eureka:
   client:
     service-url:
@@ -22,11 +30,19 @@ management:
         include: info, health, metrics
 
 sample:
+  feign.client:
+    name: sample-client
+    url: http://localhost:8081/
+
   default-cost-millis: 500
-  random-cost-millis-limit: 2000
   data:
-    author: Fujun Yang
-    email: fujun.yang@nomura.com
-    department: WDOT Market Data Services
-    location: Shanghai (Central Plaza 31FL)
-    webex: https://nomura.webex.com/meet/fujun.yang | 2610 697 0331
+    - name: Fujun Yang
+      email: fujun.yang@nomura.com
+      department: WDOT Market Data Services
+      location: Shanghai (Central Plaza 31FL)
+      webex: https://nomura.webex.com/meet/fujun.yang | 2610 697 0331
+
+    - name: Yifan Zhuang
+      email: yifan.zhuang@nomura.com
+      department: WDOT Market Data Services
+      location: Shanghai (Central Plaza 31FL)

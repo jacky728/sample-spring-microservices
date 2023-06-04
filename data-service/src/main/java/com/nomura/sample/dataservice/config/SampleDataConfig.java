@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class SampleDataConfig {
 
     private int defaultCostMillis = 1000;
-    public int randomCostMillisLimit = 5000;
 
-    private SampleData data;
+    private SampleData[] data;
+
 }
