@@ -27,7 +27,7 @@ management:
 sample:
   feign.client:
     name: sample-client
-    url: http://localhost:8081/
+    url: http://data-service:8081/
 
   default-cost-millis: 500
   data:
