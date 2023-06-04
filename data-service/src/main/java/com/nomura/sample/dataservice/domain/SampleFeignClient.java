@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * OpenFeign client interface to retrieve data from /sample/data endpoint
  */
-@FeignClient(name="${sample.feign.client.name}", url="${sample.feign.client.url}",
+@FeignClient(name="${sample.feign.client.name}",
         fallbackFactory = SampleFeignFallbackFactory.class)
 public interface SampleFeignClient {
     @GetMapping("/sample/data")
