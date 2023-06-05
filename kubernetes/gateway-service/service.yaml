@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: gateway-service
-  name: gateway-service
+    app: sample-gateway-service
+  name: sample-gateway-service
 spec:
   ports:
-  - name: gateway-svc-8080
+  - name: sample-gateway-svc-8080
     port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: gateway-service
+    app: sample-gateway-service
   type: ClusterIP

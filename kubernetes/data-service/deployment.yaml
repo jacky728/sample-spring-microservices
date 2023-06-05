@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: data-service
-  name: data-service
+    app: sample-data-service
+  name: sample-data-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: data-service
+      app: sample-data-service
   template:
     metadata:
       labels:
-        app: data-service
+        app: sample-data-service
     spec:
       containers:
       - image: data-service:1.0-SNAPSHOT
-        name: data-service
+        name: sample-data-service
         resources:
           limits:
             cpu: 200m

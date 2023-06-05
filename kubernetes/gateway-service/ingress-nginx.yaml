@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: gateway-nginx-ingress
+  name: sample-gateway-ingress
 spec:
   ingressClassName: nginx
   rules:
   - host: kubernetes.docker.internal
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
-            name: gateway-service
+            name: sample-gateway-service
             port:
               number: 8080
-        path: /
-        pathType: Prefix

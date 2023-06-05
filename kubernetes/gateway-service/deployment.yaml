@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: gateway-service
-  name: gateway-service
+    app: sample-gateway-service
+  name: sample-gateway-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gateway-service
+      app: sample-gateway-service
   template:
     metadata:
       labels:
-        app: gateway-service
+        app: sample-gateway-service
     spec:
       containers:
-      - image: gateway-service:1.0-SNAPSHOT
-        name: data-service
+      - image: gateway-service:1.0
+        name: sample-data-service
         resources:
           limits:
             cpu: 200m
