@@ -1,0 +1,25 @@
+ apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: data-service            # Default used as ${spring.application.name}
+  #name: data-service-config    # Does not work with ${spring.cloud.kubernetes.config.name}
+
+data:
+  application.yml: |
+    sample:
+      feign.client:
+        name: sample-client
+        url: http://sample-data-service:8081/
+
+      default-cost-millis: 500
+      data:
+        - name: Fujun YANG
+          email: fujun.yang@nomura.com
+          department: WDOT Market Data Services
+          location: Shanghai (Central Plaza 31FL)
+          webex: https://nomura.webex.com/meet/fujun.yang | 2610 697 0331
+
+        - name: Yifan Zhuang
+          email: yifan.zhuang@nomura.com
+          department: WDOT Market Data Services
+          location: Shanghai (Central Plaza 31FL)

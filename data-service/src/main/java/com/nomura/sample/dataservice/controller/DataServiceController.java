@@ -9,6 +9,7 @@ import io.micrometer.core.instrument.Metrics;
 import io.micrometer.core.instrument.Timer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,9 @@ public class DataServiceController {
     /**
      * Sample data configuration with defaultCostMillis
      */
-    private final SampleDataConfig config;
+    @Autowired
+    //private final SampleDataConfig config;
+    private SampleDataConfig config;
 
     /**
      * Autowired OpenFeign client instance

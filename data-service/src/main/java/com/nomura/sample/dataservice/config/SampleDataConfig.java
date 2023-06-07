@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * Sample data config with defaultCostMillis and randomCostMillisLimit
  */
 @Data
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConfigurationProperties(prefix = "sample")
 public class SampleDataConfig {
 

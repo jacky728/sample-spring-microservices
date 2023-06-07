@@ -9,6 +9,15 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     default-property-inclusion: non_null
 
+  cloud:
+    kubernetes:
+      config:
+        name: data-service-config     # Does NOT work here! default to use ${spring.application.name}
+      reload:
+        enabled: true
+        #mode: event                  # default as Event, alternative Polling using period of interval (default 15s)
+        #strategy: restart_context    # default as Refresh only applied to @ConfigurationProperties and @RefreshScope
+
 feign:
   circuitbreaker:
     enabled: true
@@ -17,6 +26,7 @@ logging:
   level:
     root: info
     com.nomura.sample: debug
+    org.springframework.cloud.kubernetes: debug
 
 management:
   endpoints:
@@ -30,14 +40,3 @@ sample:
     url: http://sample-data-service:8081/
 
   default-cost-millis: 500
-  data:
-    - name: Fujun Yang
-      email: fujun.yang@nomura.com
-      department: WDOT Market Data Services
-      location: Shanghai (Central Plaza 31FL)
-      webex: https://nomura.webex.com/meet/fujun.yang | 2610 697 0331
-
-    - name: Yifan Zhuang
-      email: yifan.zhuang@nomura.com
-      department: WDOT Market Data Services
-      location: Shanghai (Central Plaza 31FL)
