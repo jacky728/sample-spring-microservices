@@ -26,7 +26,6 @@ logging:
   level:
     root: info
     com.nomura.sample: debug
-    org.springframework.cloud.kubernetes: debug
 
 management:
   endpoints:
