@@ -12,7 +12,7 @@ spring:
   cloud:
     kubernetes:
       config:
-        name: data-service-config     # Does NOT work here! default to use ${spring.application.name}
+        name: sample-data-service-app-config     # Does NOT work here, but works well with parameter or env variables
       reload:
         enabled: true
         #mode: event                  # default as Event, alternative Polling using period of interval (default 15s)

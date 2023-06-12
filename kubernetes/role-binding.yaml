@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: sample-reader
+  name: sample-role-reader
   namespace: default
 rules:
   - apiGroups: [""]
@@ -13,20 +13,20 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: sample-reader-binding
+  name: sample-role-reader-binding
   namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: sample-reader
+  name: sample-role-reader
 subjects:
   - kind: ServiceAccount
-    name: sample-account
+    name: sample-service-account
 
 ---
 
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: sample-account
+  name: sample-service-account
   namespace: default

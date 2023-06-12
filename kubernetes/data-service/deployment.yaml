@@ -17,6 +17,9 @@ spec:
       containers:
       - image: data-service:1.0-SNAPSHOT
         name: sample-data-service
+        envFrom:
+        - configMapRef:
+            name: sample-data-service-env-config
         resources:
           limits:
             cpu: 200m
@@ -48,3 +51,5 @@ spec:
         - name: config-volume
           configMap:
             name: app-graceful-shutdown
+
+      serviceAccountName: sample-service-account
