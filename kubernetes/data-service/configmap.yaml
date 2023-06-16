@@ -4,6 +4,9 @@ metadata:
   name: sample-data-service-env-config
 data:
   SPRING_CLOUD_KUBERNETES_CONFIG_NAME: "sample-data-service-app-config"
+  #SPRING_CLOUD_KUBERNETES_RELOAD_STRATEGY: "restart_context"
+  #MANAGEMENT_ENDPOINT_RESTART_ENABLED: "true"
+  #MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "restart, info, health, metrics"
 
 ---
 apiVersion: v1
